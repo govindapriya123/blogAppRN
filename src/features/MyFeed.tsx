@@ -9,11 +9,12 @@ import { toggleBookMark } from "../store/slices/bookMarkSlice";
 const Container = styled.View`
 flex:1;
 padding:10px;
-background-color:#f8f9fa;
+background-color:${(props) => props.theme.primaryBackground || '#FFFFFF'};
 `;
 const PostCard = styled(Card)`
 margin-bottom:10px;
 border-radius:10px;
+background-color:${(props) => props.theme.cardBackground || '#FFFFFF'};
 `;
 const MyFeed=({navigation})=>{
     const savedPosts=useAppSelector((state:any)=>state.posts.myPosts);

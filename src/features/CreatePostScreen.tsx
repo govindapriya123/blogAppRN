@@ -107,7 +107,7 @@ const CreatePostScreen=({navigation,route})=>{
       setPageButtonTitle('Update Post');
       setTitle(post.title || '');
       setContent(post.content || '');
-      setCategory(post.category?.id || '');
+      setCategory(post.category?.name|| '');
       setTags(post.tags?.map((tag: { id: any; }) => tag.id) || []);
       setImageUri(post.imageUrls || []); // if your backend provides image URLs
     }
@@ -135,6 +135,7 @@ const CreatePostScreen=({navigation,route})=>{
   
    useEffect(() => {
     if(post){
+      console.log("--post--",post);
       navigation.setOptions({ title: 'Edit New Post' });
     }else{
       navigation.setOptions({ title: 'Create New Post' });
@@ -335,7 +336,7 @@ const CreatePostScreen=({navigation,route})=>{
     };
     
    return(
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:theme.primaryBackground}}>
     <PostScreen bounces={false}>
       <Input
       placeholder='Enter Title'

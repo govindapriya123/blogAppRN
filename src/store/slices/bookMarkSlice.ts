@@ -17,7 +17,7 @@ export const fetchBookMarkedPosts = createAsyncThunk(
   'bookmark/fetchBookMarkedPosts',
   async () => {
     const authToken=await getItem("authToken");
-    const bookmarkedPosts = await axios.get("http://192.168.0.126:8086/api/bookmarks",{headers:{Authorization:`Bearer ${authToken}`}});
+    const bookmarkedPosts = await axios.get("http://localhost:8086/api/bookmarks",{headers:{Authorization:`Bearer ${authToken}`}});
      console.log("bookmarkedPosts",bookmarkedPosts);
      return bookmarkedPosts.data;
   },
@@ -27,7 +27,7 @@ export const toggleBookMark = createAsyncThunk(
   async (postId:number,{rejectWithValue}) => {
     try{
     const authToken=await getItem("authToken");
-    const toggleBookMark=await axios.post("http://192.168.0.126:8086/api/bookmarks/toggle",{postId},{
+    const toggleBookMark=await axios.post("http://localhost:8086/api/bookmarks/toggle",{postId},{
         headers: { Authorization: `Bearer ${authToken}` }
     });
    return toggleBookMark.data;

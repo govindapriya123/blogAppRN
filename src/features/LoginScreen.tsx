@@ -14,9 +14,27 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useAppDispatch } from '../utils/hooks';
 import { loginUser, setProfilePicture, setUserFromStorage } from '../store/slices/authSlice';
 import { profilePicURL } from '../helpers/Util';
+import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
-
+const Container=styled(View)(props=>({
+  backgroundColor:props.theme.primaryBackground,
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center'
+}));
+const Header=styled(Text)(props=>({
+  color:props.theme.headerText,
+  fontSize: 32,
+    fontWeight: '700',
+    // color: '#333',
+    marginBottom: 4,
+}));
+const subHeader=styled(Text)(props=>({
+  fontSize: 16,
+  color: props.theme.headerText,
+  marginBottom: 24,
+}));
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -36,13 +54,13 @@ const LoginScreen = ({ navigation }) => {
         const {profileCompleted,loggedInUser}=resultAction.payload;
         dispatch(setUserFromStorage(loggedInUser));
         dispatch(setProfilePicture({uri:`${profilePicURL}/${loggedInUser.username}.jpg`}));
-        if(!profileCompleted){
-          Alert.alert('Profile Incomplete', 'Please complete your profile');
-          navigation.navigate('Profile');
-        }else{
+        // if(!profileCompleted){
+        //   Alert.alert('Profile Incomplete', 'Please complete your profile');
+        //   navigation.navigate('Profile');
+        // }else{
           Alert.alert('Login Successful', 'Welcome back!');
           navigation.navigate('AppDrawer');
-        }
+        // }
 
       }else{
         Alert.alert('Login Failed',resultAction.payload as string);
@@ -52,8 +70,8 @@ const LoginScreen = ({ navigation }) => {
     }
   };
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Welcome</Text>
+    <Container>
+      <Header>Welcome</Header>
       <Text style={styles.subHeader}>Sign in to your account</Text>
 
       <View style={styles.inputContainer}>
@@ -107,7 +125,7 @@ const LoginScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
         <Text style={styles.linkText}>Don't have an account? Register</Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 };
 
@@ -161,7 +179,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   gradient: {
-    paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -169,6 +186,7 @@ const styles = StyleSheet.create({
   buttonContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 14,
     gap: 8,
   },
   buttonText: {

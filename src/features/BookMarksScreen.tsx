@@ -12,13 +12,14 @@ import {formatDate, profilePicURL} from '../helpers/Util';
 import RenderHTML from 'react-native-render-html';
 import {updateBookmarkStatus} from '../store/slices/postsSlice';
 const Container = styled.View`
-  flex: 1;
-  padding: 10px;
-  background-color: #f8f9fa;
+flex:1;
+padding:10px;
+background-color:${(props) => props.theme.primaryBackground || '#FFFFFF'};
 `;
 const PostCard = styled(Card)`
-  margin-bottom: 10px;
-  border-radius: 10px;
+margin-bottom:10px;
+border-radius:10px;
+background-color:${(props) => props.theme.cardBackground || '#FFFFFF'};
 `;
 function BookmarksScreen({navigation}) {
   const savedPosts = useAppSelector(

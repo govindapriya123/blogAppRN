@@ -12,6 +12,7 @@ export interface Theme{
     modalOverlay:string;
     modalContent:string;
     modalTitle:string;
+    cardBackground:string;
 }
 export const themes={
     light:{
@@ -31,7 +32,8 @@ export const themes={
         modalOverlay:'rgba(0, 0, 0, 0.5)',
         modalContent:'#F8FAFC',
         modalTitle:'#16213E',
-        optionsButton:'#28A745'
+        optionsButton:'#28A745',
+        cardBackground:''
     },
     dark:{
         primaryBackground: '#16213E',
@@ -50,7 +52,8 @@ export const themes={
          modalOverlay:'rgba(0, 0, 0, 0.7)',
          modalContent:'#1F2A44',
          modalTitle:'#E8E8E8',
-         optionsButton:'#2FD159'
+         optionsButton:'#2FD159',
+         cardBackground:'#FFFCF2'
 
     }
 };

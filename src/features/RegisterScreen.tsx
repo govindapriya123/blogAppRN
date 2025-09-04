@@ -169,11 +169,11 @@ const styles = StyleSheet.create({
     marginHorizontal:25,
   },
   gradient: {
-    padding: 10,
     borderRadius: 10,
     width:'30%',
   },
   buttonContainer: {
+    padding: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },

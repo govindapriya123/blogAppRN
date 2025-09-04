@@ -38,7 +38,6 @@ const SectionCard = styled(View)`
 
 function SettingsScreen() {
   const theme = useTheme();
-  const navigation = useNavigation();
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleTheme = async () => {
@@ -56,7 +55,8 @@ function SettingsScreen() {
         style: 'destructive',
         onPress: async () => {
           await clearStorage();
-          navigation.reset({ index: 0, routes: [{ name: 'LoginScreen' }] });
+         // rootNavigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+         navigation.navigate("Login");
         },
       },
     ]);
@@ -98,7 +98,7 @@ function SettingsScreen() {
             title="About App"
             titleStyle={{ color: theme.text }}
             left={() => <List.Icon icon="information-outline" color={theme.text} />}
-            onPress={() => Alert.alert('About', 'Blog App v1.0\nCreated by You')}
+            onPress={() => Alert.alert('About', 'Blog App v1.0\nCreated by Govindapriya')}
           />
 
           <List.Item

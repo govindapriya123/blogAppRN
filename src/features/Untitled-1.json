@@ -1,0 +1,364 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "My Trip to Himachal Pradesh",
+            "content": "<div>Himachal was breathtaking with its snow-capped mountains and peaceful vibes. Trekking to Triund was a highlight of the trip!</div>",
+            "category": null,
+            "user": {
+                "username": "gp03",
+                "email": "gp32@gmail.com",
+                "password": "$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O",
+                "profileCompleted": true,
+                "profilePic": "/uploads/profile/gp03.jpg",
+                "authorities": [],
+                "id": 2,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "credentialsNonExpired": true,
+                "enabled": true
+            },
+            "imageNames": [
+                "8d0f2b62-740b-4431-aa54-80c52e6dc99c.jpg"
+            ],
+            "tags": [
+                {
+                    "id": 2,
+                    "name": "Java"
+                },
+                {
+                    "id": 6,
+                    "name": "Travel"
+                },
+                {
+                    "id": 10,
+                    "name": "Fitness"
+                }
+            ],
+            "bookmarked": true,
+            "status": "Publish",
+            "imageOrder": [],
+            "createdAt": "2025-07-19T19:05:34.827076",
+            "updatedAt": "2025-07-19T22:47:08.411719",
+            "lastSaved": "2025-07-19T22:47:08.284909"
+        },
+        {
+            "id": 2,
+            "title": "Healthy Morning Routine for 2025",
+            "content": "<div>Start your day with hydration, meditation, light stretching, and a healthy breakfast. Avoid screens for the first 30 minutes of the day.</div>",
+            "category": {
+                "id": 4,
+                "name": "React Native"
+            },
+            "user": {
+                "username": "gp03",
+                "email": "gp32@gmail.com",
+                "password": "$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O",
+                "profileCompleted": true,
+                "profilePic": "/uploads/profile/gp03.jpg",
+                "authorities": [],
+                "id": 2,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "credentialsNonExpired": true,
+                "enabled": true
+            },
+            "imageNames": [
+                "146f84b4-f097-44f3-819f-0b370e9500aa.jpg"
+            ],
+            "tags": [
+                {
+                    "id": 2,
+                    "name": "Java"
+                },
+                {
+                    "id": 2,
+                    "name": "Java"
+                },
+                {
+                    "id": 10,
+                    "name": "Fitness"
+                }
+            ],
+            "bookmarked": true,
+            "status": "Publish",
+            "imageOrder": [],
+            "createdAt": "2025-07-19T19:06:11.857318",
+            "updatedAt": "2025-07-19T19:06:11.857327",
+            "lastSaved": "2025-07-19T19:06:11.856858"
+        },
+        {
+            "id": 3,
+            "title": "Mastering React Native in 30 Days",
+            "content": "<div>React Native enables developers to build cross-platform apps using JavaScript and React. In this post, we cover a 30-day roadmap to mastering React Native with hands-on projects.</div>",
+            "category": {
+                "id": 3,
+                "name": "Web Development"
+            },
+            "user": {
+                "username": "Priya3",
+                "email": "Priya@gmail.com",
+                "password": "$2a$10$mT4Mki8V/x5YBaRiCgkM3.D08Eel62k7W0Qs.MR.Ow86zz0E1zAW2",
+                "profileCompleted": true,
+                "profilePic": "/uploads/profile/Priya3.jpg",
+                "authorities": [],
+                "id": 4,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "credentialsNonExpired": true,
+                "enabled": true
+            },
+            "imageNames": [
+                "c111ae48-7040-4762-b7f1-6bafbe1a0975.jpg",
+                "c838e10f-d05c-4c7d-a6b6-b5c911dcd782.jpg",
+                "173c432c-7798-4a08-9581-9f2ca99a1834.jpg",
+                "30bf8bd6-e251-4b96-8a1e-13dfdaf9751e.jpg",
+                "046ef196-c435-4a63-ad10-721093ec9e81.jpg",
+                "f0ae1046-02a2-4db5-a036-838358a1c710.jpg"
+            ],
+            "tags": [
+                {
+                    "id": 7,
+                    "name": "Machine Learning"
+                }
+            ],
+            "bookmarked": false,
+            "status": "Publish",
+            "imageOrder": [],
+            "createdAt": "2025-07-20T17:34:11.362342",
+            "updatedAt": "2025-07-20T17:34:11.362367",
+            "lastSaved": "2025-07-20T17:34:11.361608"
+        },
+        {
+            "id": 4,
+            "title": "10 Tips for Learning React Native",
+            "content": "<div>React Native is a powerful framework for building cross-platform apps. Here are 10 essential tips to master it...</div>",
+            "category": {
+                "id": 2,
+                "name": "Lifestyle"
+            },
+            "user": {
+                "username": "gp03",
+                "email": "gp32@gmail.com",
+                "password": "$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O",
+                "profileCompleted": true,
+                "profilePic": "/uploads/profile/gp03.jpg",
+                "authorities": [],
+                "id": 2,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "credentialsNonExpired": true,
+                "enabled": true
+            },
+            "imageNames": [
+                "53f4e524-337a-456f-b538-223c29f99bf3.jpg"
+            ],
+            "tags": [
+                {
+                    "id": 1,
+                    "name": "React"
+                },
+                {
+                    "id": 2,
+                    "name": "Java"
+                },
+                {
+                    "id": 3,
+                    "name": "Wellness"
+                },
+                {
+                    "id": 1,
+                    "name": "React"
+                }
+            ],
+            "bookmarked": false,
+            "status": "Publish",
+            "imageOrder": [],
+            "createdAt": "2025-07-31T10:49:23.692737",
+            "updatedAt": "2025-07-31T10:49:23.692761",
+            "lastSaved": "2025-07-31T10:49:23.691921"
+        },
+        {
+            "id": 5,
+            "title": "10 Tips for Learning React Native",
+            "content": "<div>React Native is a powerful framework for building cross-platform apps. Here are 10 essential tips to master it...</div>",
+            "category": {
+                "id": 3,
+                "name": "Web Development"
+            },
+            "user": {
+                "username": "gp03",
+                "email": "gp32@gmail.com",
+                "password": "$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O",
+                "profileCompleted": true,
+                "profilePic": "/uploads/profile/gp03.jpg",
+                "authorities": [],
+                "id": 2,
+                "accountNonExpired": true,
+                "accountNonLocked": true,
+                "credentialsNonExpired": true,
+                "enabled": true
+            },
+            "imageNames": [
+                "013eaf22-a095-4955-a75d-d4a80544dd94.jpg",
+                "d72f239a-06cf-455f-b250-92c9751874ac.jpg"
+            ],
+            "tags": [
+                {
+                    "id": 2,
+                    "name": "Java"
+                },
+                {
+                    "id": 7,
+                    "name": "Machine Learning"
+                },
+                {
+                    "id": 1,
+                    "name": "React"
+                }
+            ],
+            "bookmarked": false,
+            "status": "Publish",
+            "imageOrder": [],
+            "createdAt": "2025-07-31T10:54:20.155058",
+            "updatedAt": "2025-07-31T10:54:20.155064",
+            "lastSaved": "2025-07-31T10:54:20.15473"
+        }
+    ],
+    "status": 200,
+    "headers": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "content-type": "application/json",
+        "date": "Mon, 04 Aug 2025 14:52:35 GMT",
+        "expires": "0",
+        "keep-alive": "timeout=10",
+        "pragma": "no-cache",
+        "transfer-encoding": "Identity",
+        "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "x-xss-protection": "0"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "adapter": [
+            "xhr",
+            "http",
+            "fetch"
+        ],
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {},
+        "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncDAzIiwiaWF0IjoxNzU0MzE5MTU1LCJleHAiOjE3NTQzMjI3NTV9.qA7gNjVHPPjGvKFPUDm3Kj0ccRd7JYLXsEMb5D5OsCA"
+        },
+        "method": "get",
+        "url": "http://192.168.0.126:8086/api/posts/feed",
+        "allowAbsoluteUrls": true
+    },
+    "request": {
+        "UNSENT": 0,
+        "OPENED": 1,
+        "HEADERS_RECEIVED": 2,
+        "LOADING": 3,
+        "DONE": 4,
+        "readyState": 4,
+        "status": 200,
+        "timeout": 0,
+        "withCredentials": true,
+        "upload": {},
+        "_aborted": false,
+        "_hasError": false,
+        "_method": "GET",
+        "_perfKey": "network_XMLHttpRequest_http://192.168.0.126:8086/api/posts/feed",
+        "_response": "[{\"id\":1,\"title\":\"My Trip to Himachal Pradesh\",\"content\":\"<div>Himachal was breathtaking with its snow-capped mountains and peaceful vibes. Trekking to Triund was a highlight of the trip!</div>\",\"category\":null,\"user\":{\"username\":\"gp03\",\"email\":\"gp32@gmail.com\",\"password\":\"$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O\",\"profileCompleted\":true,\"profilePic\":\"/uploads/profile/gp03.jpg\",\"authorities\":[],\"id\":2,\"accountNonExpired\":true,\"accountNonLocked\":true,\"credentialsNonExpired\":true,\"enabled\":true},\"imageNames\":[\"8d0f2b62-740b-4431-aa54-80c52e6dc99c.jpg\"],\"tags\":[{\"id\":2,\"name\":\"Java\"},{\"id\":6,\"name\":\"Travel\"},{\"id\":10,\"name\":\"Fitness\"}],\"bookmarked\":true,\"status\":\"Publish\",\"imageOrder\":[],\"createdAt\":\"2025-07-19T19:05:34.827076\",\"updatedAt\":\"2025-07-19T22:47:08.411719\",\"lastSaved\":\"2025-07-19T22:47:08.284909\"},{\"id\":2,\"title\":\"Healthy Morning Routine for 2025\",\"content\":\"<div>Start your day with hydration, meditation, light stretching, and a healthy breakfast. Avoid screens for the first 30 minutes of the day.</div>\",\"category\":{\"id\":4,\"name\":\"React Native\"},\"user\":{\"username\":\"gp03\",\"email\":\"gp32@gmail.com\",\"password\":\"$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O\",\"profileCompleted\":true,\"profilePic\":\"/uploads/profile/gp03.jpg\",\"authorities\":[],\"id\":2,\"accountNonExpired\":true,\"accountNonLocked\":true,\"credentialsNonExpired\":true,\"enabled\":true},\"imageNames\":[\"146f84b4-f097-44f3-819f-0b370e9500aa.jpg\"],\"tags\":[{\"id\":2,\"name\":\"Java\"},{\"id\":2,\"name\":\"Java\"},{\"id\":10,\"name\":\"Fitness\"}],\"bookmarked\":true,\"status\":\"Publish\",\"imageOrder\":[],\"createdAt\":\"2025-07-19T19:06:11.857318\",\"updatedAt\":\"2025-07-19T19:06:11.857327\",\"lastSaved\":\"2025-07-19T19:06:11.856858\"},{\"id\":3,\"title\":\"Mastering React Native in 30 Days\",\"content\":\"<div>React Native enables developers to build cross-platform apps using JavaScript and React. In this post, we cover a 30-day roadmap to mastering React Native with hands-on projects.</div>\",\"category\":{\"id\":3,\"name\":\"Web Development\"},\"user\":{\"username\":\"Priya3\",\"email\":\"Priya@gmail.com\",\"password\":\"$2a$10$mT4Mki8V/x5YBaRiCgkM3.D08Eel62k7W0Qs.MR.Ow86zz0E1zAW2\",\"profileCompleted\":true,\"profilePic\":\"/uploads/profile/Priya3.jpg\",\"authorities\":[],\"id\":4,\"accountNonExpired\":true,\"accountNonLocked\":true,\"credentialsNonExpired\":true,\"enabled\":true},\"imageNames\":[\"c111ae48-7040-4762-b7f1-6bafbe1a0975.jpg\",\"c838e10f-d05c-4c7d-a6b6-b5c911dcd782.jpg\",\"173c432c-7798-4a08-9581-9f2ca99a1834.jpg\",\"30bf8bd6-e251-4b96-8a1e-13dfdaf9751e.jpg\",\"046ef196-c435-4a63-ad10-721093ec9e81.jpg\",\"f0ae1046-02a2-4db5-a036-838358a1c710.jpg\"],\"tags\":[{\"id\":7,\"name\":\"Machine Learning\"}],\"bookmarked\":false,\"status\":\"Publish\",\"imageOrder\":[],\"createdAt\":\"2025-07-20T17:34:11.362342\",\"updatedAt\":\"2025-07-20T17:34:11.362367\",\"lastSaved\":\"2025-07-20T17:34:11.361608\"},{\"id\":4,\"title\":\"10 Tips for Learning React Native\",\"content\":\"<div>React Native is a powerful framework for building cross-platform apps. Here are 10 essential tips to master it...</div>\",\"category\":{\"id\":2,\"name\":\"Lifestyle\"},\"user\":{\"username\":\"gp03\",\"email\":\"gp32@gmail.com\",\"password\":\"$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O\",\"profileCompleted\":true,\"profilePic\":\"/uploads/profile/gp03.jpg\",\"authorities\":[],\"id\":2,\"accountNonExpired\":true,\"accountNonLocked\":true,\"credentialsNonExpired\":true,\"enabled\":true},\"imageNames\":[\"53f4e524-337a-456f-b538-223c29f99bf3.jpg\"],\"tags\":[{\"id\":1,\"name\":\"React\"},{\"id\":2,\"name\":\"Java\"},{\"id\":3,\"name\":\"Wellness\"},{\"id\":1,\"name\":\"React\"}],\"bookmarked\":false,\"status\":\"Publish\",\"imageOrder\":[],\"createdAt\":\"2025-07-31T10:49:23.692737\",\"updatedAt\":\"2025-07-31T10:49:23.692761\",\"lastSaved\":\"2025-07-31T10:49:23.691921\"},{\"id\":5,\"title\":\"10 Tips for Learning React Native\",\"content\":\"<div>React Native is a powerful framework for building cross-platform apps. Here are 10 essential tips to master it...</div>\",\"category\":{\"id\":3,\"name\":\"Web Development\"},\"user\":{\"username\":\"gp03\",\"email\":\"gp32@gmail.com\",\"password\":\"$2a$10$mODe8KotHO6SgoyxzUAF3em9F74SikLc4R9CpCimcBNv.6co3.E8O\",\"profileCompleted\":true,\"profilePic\":\"/uploads/profile/gp03.jpg\",\"authorities\":[],\"id\":2,\"accountNonExpired\":true,\"accountNonLocked\":true,\"credentialsNonExpired\":true,\"enabled\":true},\"imageNames\":[\"013eaf22-a095-4955-a75d-d4a80544dd94.jpg\",\"d72f239a-06cf-455f-b250-92c9751874ac.jpg\"],\"tags\":[{\"id\":2,\"name\":\"Java\"},{\"id\":7,\"name\":\"Machine Learning\"},{\"id\":1,\"name\":\"React\"}],\"bookmarked\":false,\"status\":\"Publish\",\"imageOrder\":[],\"createdAt\":\"2025-07-31T10:54:20.155058\",\"updatedAt\":\"2025-07-31T10:54:20.155064\",\"lastSaved\":\"2025-07-31T10:54:20.15473\"}]",
+        "_url": "http://192.168.0.126:8086/api/posts/feed",
+        "_timedOut": false,
+        "_trackingName": null,
+        "_incrementalEvents": false,
+        "_startTime": 528512.962416,
+        "_performanceLogger": {
+            "_timespans": {
+                "network_XMLHttpRequest_http://192.168.0.126:8086/auth/login": {
+                    "startTime": 411524.438416,
+                    "endTime": 411765.962041,
+                    "totalTime": 241.52362500003073
+                },
+                "network_XMLHttpRequest_http://192.168.0.126:8086/api/posts/feed": {
+                    "startTime": 411997.371083,
+                    "endTime": 412222.271791,
+                    "totalTime": 224.90070800000103
+                },
+                "network_XMLHttpRequest_http://192.168.0.126:8086/api/bookmarks": {
+                    "startTime": 412316.378333,
+                    "endTime": 412379.3435,
+                    "totalTime": 62.96516700001666
+                },
+                "network_XMLHttpRequest_http://localhost:8081/symbolicate": {
+                    "startTime": 421812.037833,
+                    "endTime": 421840.121083,
+                    "totalTime": 28.083249999966938
+                }
+            },
+            "_extras": {},
+            "_points": {
+                "initializeCore_start": 379685.557083,
+                "initializeCore_end": 379742.627208
+            },
+            "_pointExtras": {},
+            "_closed": false
+        },
+        "responseHeaders": {
+            "X-Frame-Options": "DENY",
+            "X-XSS-Protection": "0",
+            "Keep-Alive": "timeout=10",
+            "Pragma": "no-cache",
+            "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+            "Transfer-Encoding": "Identity",
+            "Content-Type": "application/json",
+            "Expires": "0",
+            "Connection": "keep-alive",
+            "Date": "Mon, 04 Aug 2025 14:52:35 GMT",
+            "X-Content-Type-Options": "nosniff",
+            "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+        },
+        "_requestId": null,
+        "_headers": {
+            "accept": "application/json, text/plain, */*",
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncDAzIiwiaWF0IjoxNzU0MzE5MTU1LCJleHAiOjE3NTQzMjI3NTV9.qA7gNjVHPPjGvKFPUDm3Kj0ccRd7JYLXsEMb5D5OsCA"
+        },
+        "_responseType": "",
+        "_sent": true,
+        "_lowerCaseResponseHeaders": {
+            "x-frame-options": "DENY",
+            "x-xss-protection": "0",
+            "keep-alive": "timeout=10",
+            "pragma": "no-cache",
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+            "transfer-encoding": "Identity",
+            "content-type": "application/json",
+            "expires": "0",
+            "connection": "keep-alive",
+            "date": "Mon, 04 Aug 2025 14:52:35 GMT",
+            "x-content-type-options": "nosniff",
+            "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+        },
+        "_subscriptions": [],
+        "responseURL": "http://192.168.0.126:8086/api/posts/feed"
+    }
+}

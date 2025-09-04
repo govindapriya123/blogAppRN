@@ -15,11 +15,12 @@ import { fetchBookMarkedPosts, toggleBookMark } from '../store/slices/bookMarkSl
 const Container = styled.View`
 flex:1;
 padding:10px;
-background-color:#f8f9fa;
+background-color:${(props) => props.theme.primaryBackground || '#FFFFFF'};
 `;
 const PostCard = styled(Card)`
 margin-bottom:10px;
 border-radius:10px;
+background-color:${(props) => props.theme.cardBackground || '#FFFFFF'};
 `;
 
 function DashboardScreen() {
@@ -65,10 +66,6 @@ function DashboardScreen() {
   if(loading){
     return <Text>Loading..</Text>
   }
-  console.log("posts",posts);
-  console.log("myposts",myPosts);
-  console.log("count posts",posts.length);
-  console.log("count myposts",myPosts.length);
   return (
     <Container>
       <FlatList

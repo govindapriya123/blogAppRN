@@ -25,6 +25,7 @@ import CustomDrawer from './src/custom/CustomDrawer';
 import MyFeed from './src/features/MyFeed';
 import BookmarksScreen from './src/features/BookMarksScreen';
 import DraftsScreen from './src/features/DraftsScreen';
+import PostDetailsScreen from './src/features/PostDetailsScreen';
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -33,33 +34,41 @@ function HomeScreenTabs() {
   const navigation = useNavigation();
   return (
     <Tab.Navigator
-      initialRouteName='Dashboard'
-      screenOptions={{headerShown:false}}
+      initialRouteName="Dashboard"
+      screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name="Dashboard" component={DashboardScreen}
-      listeners={{
-        focus: () => navigation.setOptions({ title: 'Dashboard' }),
-      }}
-       options={{
-
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="home" size={size} color={color} /> // Replace with your icon
-        ),
-      }} 
+      <Tab.Screen
+        name="Dashboard"
+        component={DashboardScreen}
+        listeners={{
+          focus: () => navigation.setOptions({ title: 'Dashboard' }),
+        }}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home" size={size} color={color} /> // Replace with your icon
+          ),
+        }}
       />
-      <Tab.Screen name="CreatePost"  listeners={{
-        focus: () => navigation.setOptions({ title: 'Create Post' }),
-      }}component={CreatePostScreen} options={{
-      tabBarLabel: '', // Hide the text label
-      tabBarIcon: ({ color, size }) => (
-        <Image 
-          source={addIcon} 
-          style={{ width: size, height: size }} 
-          resizeMode="contain"
-        />
-      ),
-    }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen
+        name="CreatePost"
+        listeners={{
+          focus: () => navigation.setOptions({ title: 'Create Post' }),
+        }}
+        component={CreatePostScreen}
+        options={{
+          tabBarLabel: '', // Hide the text label
+          tabBarIcon: ({ color, size }) => (
+            <Image
+              source={addIcon}
+              style={{ width: size, height: size }}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tab.Screen name="Settings" component={SettingsScreen} options={{tabBarIcon: ({ color, size }) => (
+            <Icon name="settings" size={size} color={color} /> // Replace with your icon
+          ),}} />
     </Tab.Navigator>
   );
 }
@@ -133,7 +142,6 @@ const ThemedApp= ()=>{
     };
     fetchTheme();
   }, [theme]);
-  console.log('---themes[currentTheme]--',themes[currentTheme]);
  return(
   <ThemeProvider theme={themes[currentTheme]} >
   <NavigationContainer>
@@ -153,6 +161,8 @@ const ThemedApp= ()=>{
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="AppDrawer" component={AppDrawer} options={{ headerShown: false }}  />
+      <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+      <Stack.Screen name="PostDetails" component={PostDetailsScreen} />
     </Stack.Navigator>
   </NavigationContainer>
   </ThemeProvider>

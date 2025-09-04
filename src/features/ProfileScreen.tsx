@@ -1,78 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, Alert, ActivityIndicator, SafeAreaView } from 'react-native';
+import React, {useEffect, useState } from 'react';
+import { View, Text, TextInput, Image, TouchableOpacity, ScrollView, StyleSheet, Alert } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
-import * as ImagePicker from 'react-native-image-picker'; // Image picker library
+import * as ImagePicker from 'react-native-image-picker';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getItem } from '../helpers/Storage';
 import { useAppSelector } from '../utils/hooks';
 import { profilePicURL } from '../helpers/Util';
+import { useNavigationContainerRef } from '@react-navigation/native';
 
-const ProfileContainer = styled(View)`
-  flex: 1;
-  padding: 20px;
-  background-color: ${(props) => props.theme.primaryBackground};
-`;
+const fields = [
+  { key: 'username', label: 'Username' },
+  { key: 'email', label: 'Email' },
+  { key: 'phone', label: 'Phone Number' },
+  { key: 'bio', label: 'Bio' },
+  { key: 'dob', label: 'Date of Birth' },
+  { key: 'gender', label: 'Gender' },
+  { key: 'location', label: 'Location' },
+];
 
-const ProfileHeader = styled(View)`
-  align-items: center;
-  margin-bottom: 30px;
-`;
-
-const ProfileImage = styled(Image)`
-  width: 120px;
-  height: 120px;
-  border-radius: 60px;
-  border-width: 2px;
-  border-color: ${(props) => props.theme.headerText};
-`;
-
-const InfoField = styled(View)`
-  margin-bottom: 15px;
-`;
-
-const FieldLabel = styled(Text)`
-  color: ${(props) => props.theme.headerText};
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 15px;
-`;
-
-const FieldInput = styled(TextInput)`
-  border: 1px solid ${(props) => props.theme.inputBackground};
-  border-radius: 10px;
-  padding: 10px;
-  color: ${(props) => props.theme.loginInputText};
-  background-color: ${(props) => props.theme.inputBackground};
-`;
-
-const SaveButton = styled(TouchableOpacity)`
-  margin-top: 20px;
-  align-self: center;
-  width: 70%;
-`;
-
-const SaveButtonText = styled(Text)`
-  text-align: center;
-  padding: 10px;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-`;
-
-export default function ProfileScreen({ navigation }) {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [profilePic, setProfilePic] = useState<any>({});
-  const [loading, setLoading] = useState(false);
-  const [usernameError,setUsernameError]=useState('');
+const ProfileScreen = ({navigation}) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [profilePic, setProfilePic] = useState(null);
+  const [usernameError,setUsernameError]=useState("");
+  const [emailError, setEmailError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [dobError, setDobError] = useState('');
   const userDetails=useAppSelector(state=>state.auth.user);
-  console.log("userDetails",userDetails);
+  const [profile, setProfile] = useState({
+    username: userDetails.username,
+    email: userDetails.email,
+    phone: userDetails.profile.phone,
+    bio: userDetails.profile.bio,
+    dob: userDetails.profile.dob,
+    gender: userDetails.profile.gender,
+    location: userDetails.profile.location
+  });
+  const [loading, setLoading] = useState(false);
+  console.log(userDetails);
 
   useEffect(() => {
-    fetchProfileData();
+    // fetchProfileData();
     setProfilePic({uri:`${profilePicURL}/${userDetails.username}.jpg`});
   }, []);
 
@@ -83,8 +53,11 @@ export default function ProfileScreen({ navigation }) {
       console.log('token',token);
   
       // Prepare FormData
+      const pData = {
+       ...profile
+      }
       const formData = new FormData();
-      formData.append('username', username);
+      formData.append('data', pData);
       console.log('--formData--',formData);
       if (profilePic) {
         formData.append('profilePic', {
@@ -97,7 +70,7 @@ export default function ProfileScreen({ navigation }) {
   
       // Make the API call
       const response = await axios.put(
-        'http://192.168.0.126:8086/api/users/profile', 
+        'http://192.168.0.126:8086/api/profile', 
         formData, 
         {
           headers: {
@@ -106,6 +79,7 @@ export default function ProfileScreen({ navigation }) {
           },
         }
       );
+      console.log("response",JSON.stringify(response));
   
       console.log('Profile updated successfully:', response.data);
     } catch (error) {
@@ -115,7 +89,12 @@ export default function ProfileScreen({ navigation }) {
       setLoading(false);
     }
   };
-  
+
+  const handleEditToggle = () =>
+  {
+    setIsEditing(!isEditing);
+    handleSave();
+  };
 
   const handleSave = async () => {
     console.log("🚀 handleSave function called!");
@@ -126,19 +105,23 @@ export default function ProfileScreen({ navigation }) {
       console.log("🔑 Retrieved Token:", token); 
       console.log("🔄 Preparing FormData...");
       const formData = new FormData();
-      if(username){
-      formData.append('username', username);
-      }
       console.log("-- FormData before sending --");
-      if (profilePic) {
-        formData.append('profilePic', {
-          uri: profilePic.uri,
-          type: 'image/jpeg',
-          name: 'profile.jpg',
-        });
-      }
+      // if (profilePic) {
+      //   formData.append('profilePic', {
+      //     uri: profilePic.uri,
+      //     type: 'image/jpeg',
+      //     name: 'profile.jpg',
+      //   });
+      // }
       console.log('--response--',formData);
-      const response = await axios.put('http://192.168.0.126:8086/api/users/profile', formData, {
+      const response = await axios.put('http://localhost:8086/api/profile',{
+        username: profile.username,
+        phone: profile.phone,
+        dob: profile.dob,
+        gender: profile.gender,
+        bio: profile.bio,
+        location: profile.location,
+      }, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -158,8 +141,6 @@ export default function ProfileScreen({ navigation }) {
       setLoading(false);
     }
   };
-  
-
   const handleLogout = async () => {
     await AsyncStorage.removeItem('authToken');
     navigation.replace('Login');
@@ -184,107 +165,177 @@ export default function ProfileScreen({ navigation }) {
   };
   
   const handleUsernameChange = async (newUsername: any) => {
-    setUsername(newUsername);
     if (await validateUsername(newUsername)) {
       setUsernameError('');
     } else {
       setUsernameError('This username is already taken.');
     }
   };
+  
+
+  const handleChange = (field: string, value: string) => {
+    if(field==="username"){
+      handleUsernameChange(value);
+    }
+    setProfile({ ...profile, [field]: value });
+  };
+
 
   const selectImage = () => {
-    Alert.alert(
-      'Select Image',
-      'Choose an option',
-      [
-        {
-          text: 'Take Photo',
-          onPress: () => launchCamera(),
-        },
-        {
-          text: 'Choose from Gallery',
-          onPress: () => pickImageFromGallery(),
-        },
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-      ],
-      { cancelable: true }
-    );
+    ImagePicker.launchImageLibrary({ mediaType: 'photo' }, (response) => {
+      if (response.assets?.length) {
+        setProfilePic({ uri: response.assets[0].uri });
+      }
+    });
   };
 
-  const launchCamera = () => {
-    ImagePicker.launchCamera({ mediaType: 'photo', quality: 0.8 }, handleImageResponse);
-  };
-
-  const pickImageFromGallery = () => {
-    ImagePicker.launchImageLibrary({ mediaType: 'photo', quality: 0.8 }, handleImageResponse);
-  };
-
-  const handleImageResponse = (response:any) => {
-    if (response.didCancel) {
-      console.log('User cancelled image picker');
-    } else if (response.errorMessage) {
-      console.error('ImagePicker Error: ', response.errorMessage);
-    } else if (response.assets && response.assets.length > 0) {
-      const source = { uri: response.assets[0].uri };
-      setProfilePic(source);
-    } else {
-      console.error('Unexpected response structure: ', response);
-    }
+  const getInitials = (name = '') => {
+    const words = name.trim().split(' ');
+    if (words.length === 1) return words[0].charAt(0).toUpperCase();
+    return words[0].charAt(0).toUpperCase() + words[1].charAt(0).toUpperCase();
   };
 
   return (
-    <ProfileContainer>
-      {loading ? (
-        <ActivityIndicator size="large" color="#C956A8" />
-      ) : (
-        <>
-          <ProfileHeader>
-            <ProfileImage source={profilePic|| require('../resources/profileimage.png')} />
-            <TouchableOpacity onPress={selectImage} style={styles.cameraIcon}>
-              <Icon name="camera-alt" size={24} color="#888" />
-            </TouchableOpacity>
-          </ProfileHeader>
-
-          <InfoField>
-            <FieldLabel>Username</FieldLabel>
-            <FieldInput value={username} onChangeText={handleUsernameChange} placeholder="Enter your username" />
-          </InfoField>
-
-          <SaveButton onPress={handleSave}>
-            <LinearGradient colors={['#D68073', '#C956A8']} style={{ borderRadius: 10 }}>
-              {loading ? (
-                <ActivityIndicator color="white" />
-              ) : (
-                <SaveButtonText>Save Changes</SaveButtonText>
-              )}
-            </LinearGradient>
-          </SaveButton>
-
-          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-            <Text style={styles.logoutText}>Logout</Text>
+    <ScrollView contentContainerStyle={styles.container} bounces={false}>
+      <View style={styles.imageContainer}>
+        {profilePic?.uri ? (
+          <Image source={{ uri: profilePic.uri }} style={styles.profileImage} />
+        ) : (
+          <View style={styles.fallbackAvatar}>
+            <Text style={styles.initials}>{getInitials(profile.username)}</Text>
+          </View>
+        )}
+        {isEditing && (
+          <TouchableOpacity onPress={selectImage} style={styles.cameraIcon}>
+            <Text style={styles.cameraText}>📷</Text>
           </TouchableOpacity>
-        </>
-      )}
-    </ProfileContainer>
+        )}
+      </View>
+
+      <View style={styles.card}>
+        {fields.map(({ key, label }) => (
+          <View key={key} style={styles.fieldContainer}>
+            <Text style={styles.label}>{label}</Text>
+
+            {isEditing ? (
+              <>
+                <TextInput
+                  style={styles.input}
+                  value={profile?.[key] || ''}
+                  onChangeText={text => handleChange(key, text)}
+                  placeholder={`Enter ${label}`}
+                />
+                {key === 'username' && usernameError ? (
+                  <Text style={{ color: 'red', fontSize: 12 }}>
+                    {usernameError}
+                  </Text>
+                ) : null}
+                {key === 'email' && emailError ? (
+                  <Text style={{ color: 'red', fontSize: 12 }}>
+                    {emailError}
+                  </Text>
+                ) : null}
+                {key === 'phone' && phoneError ? (
+                  <Text style={{ color: 'red', fontSize: 12 }}>
+                    {phoneError}
+                  </Text>
+                ) : null}
+                {key === 'dob' && dobError ? (
+                  <Text style={{ color: 'red', fontSize: 12 }}>
+                    {dobError}
+                  </Text>
+                ) : null}
+              </>
+            ) : (
+              <Text style={styles.readOnlyText}>{profile?.[key] || 'N/A'}</Text>
+            )}
+          </View>
+        ))}
+
+        <TouchableOpacity onPress={handleEditToggle} style={styles.editButton}>
+          <Text style={styles.editButtonText}>
+            {isEditing ? 'Save' : 'Edit Profile'}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor: '#16213E',
+  },
+  imageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  profileImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 2,
+    borderColor: '#C956A8',
+  },
+  fallbackAvatar: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: '#394867',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  initials: {
+    fontSize: 36,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
   cameraIcon: {
     position: 'absolute',
     bottom: 0,
-    right: 10,
+    right: 100,
+    backgroundColor: '#fff',
+    padding: 6,
+    borderRadius: 20,
   },
-  logoutButton: {
-    marginTop: 30,
-    alignSelf: 'center',
-  },
-  logoutText: {
-    color: 'red',
+  cameraText: {
     fontSize: 16,
+  },
+  card: {
+    backgroundColor: '#F2ECE1',
+    borderRadius: 16,
+    padding: 20,
+  },
+  fieldContainer: {
+    marginBottom: 15,
+  },
+  label: {
+    color: '#444',
+    marginBottom: 4,
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 10,
+  },
+  readOnlyText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  editButton: {
+    backgroundColor: '#C956A8',
+    padding: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  editButtonText: {
+    color: '#fff',
     fontWeight: 'bold',
   },
 });
+
+export default ProfileScreen;

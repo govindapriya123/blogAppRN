@@ -60,7 +60,7 @@ function PostDetailsScreen({ route }) {
   }, [navigation, post]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.primaryBackground }}>
       <ScrollView style={styles.container} bounces={false} showsVerticalScrollIndicator={false}>
         <Text style={[styles.title, { color: theme.text }]}>{post.title}</Text>
 

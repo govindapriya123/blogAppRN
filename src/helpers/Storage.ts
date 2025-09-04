@@ -26,3 +26,13 @@ export const removeItem=async(key:string)=>{
         console.error('error removing key',error);
     }
 }
+
+export const clearStorage=async()=>{
+   try{
+    await EncryptedStorage.clear();
+    console.log("Storage cleared!");
+   }catch(error){
+    console.log("Failed to clear storage",error);
+   }
+
+}

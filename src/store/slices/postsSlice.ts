@@ -4,7 +4,7 @@ import {getItem} from '../../helpers/Storage';
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const authToken = await getItem('authToken');
   console.log('authToken:', authToken);
-  const response = await axios.get('http://192.168.0.126:8086/api/posts/feed', {
+  const response = await axios.get('http://localhost:8086/api/posts/feed', {
     headers: {Authorization: `Bearer ${authToken}`},
   });
   console.log('response', JSON.stringify(response));
